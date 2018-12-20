@@ -52,9 +52,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSh-4h-BOr">
-                        <rect key="frame" x="14" y="443" width="35" height="25"/>
+                        <rect key="frame" x="19" y="443" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="a" image="iine"/>
+                        <state key="normal" image="iine"/>
                         <connections>
                             <action selector="like:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vp4-Ay-Q5k"/>
                         </connections>
@@ -89,9 +89,9 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvr-Cw-qSC">
-                        <rect key="frame" x="55" y="435" width="52" height="40"/>
+                        <rect key="frame" x="61" y="435" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="B" image="more"/>
+                        <state key="normal" image="more"/>
                     </button>
                 </subviews>
             </tableViewCellContentView>

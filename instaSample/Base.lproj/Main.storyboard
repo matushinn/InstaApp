@@ -65,7 +65,7 @@
         <!--新規投稿-->
         <scene sceneID="ClF-b4-JSS">
             <objects>
-                <viewController id="uz8-GE-11w" sceneMemberID="viewController">
+                <viewController id="uz8-GE-11w" customClass="PostViewController" customModule="instaSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ja6-n5-Yl3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -75,18 +75,44 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ8-Qp-J0E">
-                                <rect key="frame" x="16" y="211" width="331" height="30"/>
+                                <rect key="frame" x="16" y="194" width="331" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="画像を選択"/>
+                                <connections>
+                                    <action selector="selectImage" destination="uz8-GE-11w" eventType="touchUpInside" id="SDS-Fy-Zjt"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="79w-XR-V7W">
+                                <rect key="frame" x="135" y="86" width="224" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="ここにキャプションを書く"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lb7-DZ-zrv"/>
                     </view>
                     <navigationItem key="navigationItem" title="新規投稿" id="8qZ-s5-pp6">
-                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="VLw-3u-4Qx"/>
-                        <barButtonItem key="rightBarButtonItem" title="シェアする" id="YK6-fu-gtE"/>
+                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="VLw-3u-4Qx">
+                            <connections>
+                                <action selector="cancel" destination="uz8-GE-11w" id="atd-mr-sOF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="シェアする" id="YK6-fu-gtE">
+                            <connections>
+                                <action selector="sharePhoto" destination="uz8-GE-11w" id="9Pm-sx-CkW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="postButton" destination="YK6-fu-gtE" id="iMA-w1-4d3"/>
+                        <outlet property="postImageView" destination="FJS-e6-cDS" id="rwE-6E-o3G"/>
+                        <outlet property="postTextView" destination="79w-XR-V7W" id="oSm-Di-dVj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNj-8O-Uw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

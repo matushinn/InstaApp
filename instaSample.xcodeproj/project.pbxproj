@@ -23,6 +23,7 @@
 		37E552DC21CB6C4300FC4052 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E552DA21CB6C4300FC4052 /* TimelineTableViewCell.xib */; };
 		37E552DE21CB6EA200FC4052 /* iine.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E552DD21CB6EA200FC4052 /* iine.png */; };
 		37E552E021CB6FB200FC4052 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E552DF21CB6FB200FC4052 /* more.png */; };
+		37E552E221CB784500FC4052 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E552E121CB784500FC4052 /* PostViewController.swift */; };
 		BC6E826D3B3E2480D63021BE /* Pods_instaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8880288DB314F3E65256D608 /* Pods_instaSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		37E552DA21CB6C4300FC4052 /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineTableViewCell.xib; sourceTree = "<group>"; };
 		37E552DD21CB6EA200FC4052 /* iine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iine.png; path = "../../../Downloads/instaSample-master 2/instaSample/Assets.xcassets/icons8-ハート-50.imageset/iine.png"; sourceTree = "<group>"; };
 		37E552DF21CB6FB200FC4052 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = more.png; path = "../../../Downloads/instaSample-master 2/instaSample/Assets.xcassets/icons8-フォームバブル-80.imageset/more.png"; sourceTree = "<group>"; };
+		37E552E121CB784500FC4052 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8880288DB314F3E65256D608 /* Pods_instaSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instaSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C061BD1E2964A4557B510620 /* Pods-instaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instaSample/Pods-instaSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				37DD6B9A219BCC160019B27A /* icons8-ホームページ-50.png */,
 				37E552D921CB6C4300FC4052 /* TimelineTableViewCell.swift */,
 				37E552DA21CB6C4300FC4052 /* TimelineTableViewCell.xib */,
+				37E552E121CB784500FC4052 /* PostViewController.swift */,
 			);
 			path = instaSample;
 			sourceTree = "<group>";
@@ -205,15 +208,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-instaSample/Pods-instaSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NCMB/NCMB.framework",
 				"${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NCMB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYXImagesKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -249,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E552E221CB784500FC4052 /* PostViewController.swift in Sources */,
 				37E552DB21CB6C4300FC4052 /* TimelineTableViewCell.swift in Sources */,
 				37DD6BA1219BDC4A0019B27A /* SignInViewController.swift in Sources */,
 				37DD6B9F219BD61F0019B27A /* SignUpViewController.swift in Sources */,

@@ -86,6 +86,7 @@ class EditUserInfoViewController: UIViewController,UITextFieldDelegate ,UITextVi
         picker.dismiss(animated: true, completion: nil)
         
         //upload
+        //ここが違うが何かわからない
         let data = realizedImage!.pngData()
         let file = NCMBFile.file(withName: NCMBUser.current()?.objectId, data: data) as! NCMBFile
         file.saveInBackground({ (error) in
