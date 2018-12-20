@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5D4CD27ECF7B5ABD1EF6B7D60A6AD91D"
+               BlueprintIdentifier = "FB995F72142E34D12291C8616C3B75C7"
                BuildableName = "UITextView_Placeholder.framework"
                BlueprintName = "UITextView+Placeholder"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5D4CD27ECF7B5ABD1EF6B7D60A6AD91D"
+            BlueprintIdentifier = "FB995F72142E34D12291C8616C3B75C7"
             BuildableName = "UITextView_Placeholder.framework"
             BlueprintName = "UITextView+Placeholder"
             ReferencedContainer = "container:Pods.xcodeproj">

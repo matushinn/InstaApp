@@ -6,12 +6,12 @@ target 'instaSample' do
   use_frameworks!
 
   # Pods for instaSample
-pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_ios.git'
-#これでリサイズできる
-pod 'NYXImagesKit'
-pod 'UITextView+Placeholder'
-pod 'SVProgressHUD'
-pod 'Kingfisher'
-
+  pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git', :branch => 'develop'
+  pod 'NYXImagesKit'
+  pod 'UITextView+Placeholder'
+  pod 'SVProgressHUD'
+  pod 'Kingfisher'
+  pod 'SwiftDate'
+  
 
 end
