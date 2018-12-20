@@ -50,7 +50,7 @@ class EditUserInfoViewController: UIViewController,UITextFieldDelegate ,UITextVi
         
         //upload
         let data = realizedImage!.pngData()
-        let file = NCMBFile.file(with: data) as! NCMBFile
+        let file = NCMBFile.file(withName: NCMBUser.current()?.objectId, data: data) as! NCMBFile
         file.saveInBackground({ (error) in
             if error != nil{
                 print(error)

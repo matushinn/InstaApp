@@ -10,11 +10,31 @@ import UIKit
 import NCMB
 
 class UserPageViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //横幅の半分の値で丸くする
+        userImageView.layer.cornerRadius = userImageView.bounds.width / 2.0
+        userImageView.layer.masksToBounds = true
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        //現在選んでいるファイルを表示する
+        let file = NCMBFile.file(withName: NCMBUser.current()?.objectId, data: nil) as! NCMBFile
+        file.getDataInBackground { (data, error) in
+            if error != nil{
+                print(error)
+            }else{
+                if data != nil{
+                    let image = UIImage(data: data!)
+                    self.userImageView.image = image
+                }
+            }
+        }
     }
     
     @IBAction func showMenu(_ sender: Any) {
