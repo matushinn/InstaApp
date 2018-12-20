@@ -30,12 +30,14 @@ class UserPageViewController: UIViewController {
         //現在のユーザーを取得
         let user = NCMBUser.current()
         
+        //userという変数に入れて、NCMBUser.current()がNilでなかったら
+        //if let文は確認した値をそのままカッコ内で使えるから便利
         if let user = NCMBUser.current(){
             userDisplayNameLabel.text = user.object(forKey: "displayName") as? String
             userIntroductionTextView.text = user.object(forKey: "introduction") as? String
             self.navigationItem.title = user.userName
             
-            let file = NCMBFile.file(withName: NCMBUser.current().objectId , data: nil) as! NCMBFile
+            let file = NCMBFile.file(withName: user.objectId , data: nil) as! NCMBFile
             file.getDataInBackground { (data, error) in
                 if error != nil{
                     print(error)
@@ -48,7 +50,8 @@ class UserPageViewController: UIViewController {
             }
         }else{
             //NCMBUser.current()がnillだった時
-            //ログアウト成功
+            //ログイン画面に遷移
+            //ログアウト
             let storyboard = UIStoryboard(name: "SiginIn", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
             //画面の切り替え

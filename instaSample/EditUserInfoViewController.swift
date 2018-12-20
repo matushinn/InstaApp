@@ -61,6 +61,7 @@ class EditUserInfoViewController: UIViewController,UITextFieldDelegate ,UITextVi
             let storyboard = UIStoryboard(name: "SiginIn", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
             //画面の切り替え
+        
             UIApplication.shared.keyWindow?.rootViewController = rootViewController
             //ログイン状態の保持
             let ud = UserDefaults.standard
