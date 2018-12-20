@@ -19,6 +19,10 @@
 		37DD6BA3219BE28D0019B27A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6BA2219BE28D0019B27A /* UserPageViewController.swift */; };
 		37DD6BA5219BEE2E0019B27A /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6BA4219BEE2E0019B27A /* EditUserInfoViewController.swift */; };
 		37E552D821CB5FE800FC4052 /* human placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E552D721CB5FE800FC4052 /* human placeholder.png */; };
+		37E552DB21CB6C4300FC4052 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E552D921CB6C4300FC4052 /* TimelineTableViewCell.swift */; };
+		37E552DC21CB6C4300FC4052 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E552DA21CB6C4300FC4052 /* TimelineTableViewCell.xib */; };
+		37E552DE21CB6EA200FC4052 /* iine.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E552DD21CB6EA200FC4052 /* iine.png */; };
+		37E552E021CB6FB200FC4052 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E552DF21CB6FB200FC4052 /* more.png */; };
 		BC6E826D3B3E2480D63021BE /* Pods_instaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8880288DB314F3E65256D608 /* Pods_instaSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,10 @@
 		37DD6BA2219BE28D0019B27A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		37DD6BA4219BEE2E0019B27A /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		37E552D721CB5FE800FC4052 /* human placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "human placeholder.png"; path = "../../../Downloads/human placeholder.png"; sourceTree = "<group>"; };
+		37E552D921CB6C4300FC4052 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		37E552DA21CB6C4300FC4052 /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineTableViewCell.xib; sourceTree = "<group>"; };
+		37E552DD21CB6EA200FC4052 /* iine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iine.png; path = "../../../Downloads/instaSample-master 2/instaSample/Assets.xcassets/icons8-ハート-50.imageset/iine.png"; sourceTree = "<group>"; };
+		37E552DF21CB6FB200FC4052 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = more.png; path = "../../../Downloads/instaSample-master 2/instaSample/Assets.xcassets/icons8-フォームバブル-80.imageset/more.png"; sourceTree = "<group>"; };
 		8880288DB314F3E65256D608 /* Pods_instaSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instaSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C061BD1E2964A4557B510620 /* Pods-instaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instaSample/Pods-instaSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,10 +100,14 @@
 				37DD6BA0219BDC4A0019B27A /* SignInViewController.swift */,
 				37DD6BA4219BEE2E0019B27A /* EditUserInfoViewController.swift */,
 				37DD6B8F219BC9350019B27A /* Assets.xcassets */,
-				37DD6B91219BC9350019B27A /* LaunchScreen.storyboard */,
 				37DD6B94219BC9350019B27A /* Info.plist */,
+				37DD6B91219BC9350019B27A /* LaunchScreen.storyboard */,
+				37E552DF21CB6FB200FC4052 /* more.png */,
 				37E552D721CB5FE800FC4052 /* human placeholder.png */,
+				37E552DD21CB6EA200FC4052 /* iine.png */,
 				37DD6B9A219BCC160019B27A /* icons8-ホームページ-50.png */,
+				37E552D921CB6C4300FC4052 /* TimelineTableViewCell.swift */,
+				37E552DA21CB6C4300FC4052 /* TimelineTableViewCell.xib */,
 			);
 			path = instaSample;
 			sourceTree = "<group>";
@@ -171,8 +183,11 @@
 			files = (
 				37DD6B93219BC9350019B27A /* LaunchScreen.storyboard in Resources */,
 				37DD6B9B219BCC160019B27A /* icons8-ホームページ-50.png in Resources */,
+				37E552DE21CB6EA200FC4052 /* iine.png in Resources */,
 				37DD6B9D219BCDCB0019B27A /* SiginIn.storyboard in Resources */,
+				37E552DC21CB6C4300FC4052 /* TimelineTableViewCell.xib in Resources */,
 				37DD6B90219BC9350019B27A /* Assets.xcassets in Resources */,
+				37E552E021CB6FB200FC4052 /* more.png in Resources */,
 				37E552D821CB5FE800FC4052 /* human placeholder.png in Resources */,
 				37DD6B8E219BC9340019B27A /* Main.storyboard in Resources */,
 			);
@@ -234,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E552DB21CB6C4300FC4052 /* TimelineTableViewCell.swift in Sources */,
 				37DD6BA1219BDC4A0019B27A /* SignInViewController.swift in Sources */,
 				37DD6B9F219BD61F0019B27A /* SignUpViewController.swift in Sources */,
 				37DD6BA5219BEE2E0019B27A /* EditUserInfoViewController.swift in Sources */,
