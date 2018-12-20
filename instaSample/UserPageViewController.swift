@@ -14,6 +14,10 @@ class UserPageViewController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     
+    @IBOutlet weak var userDisplayNameLabel: UILabel!
+    
+    @IBOutlet weak var userIntroductionTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,19 +27,41 @@ class UserPageViewController: UIViewController {
        
     }
     override func viewWillAppear(_ animated: Bool) {
-        //現在選んでいるファイルを表示する
-        let file = NCMBFile.file(withName: NCMBUser.current()?.objectId, data: nil) as! NCMBFile
-        file.getDataInBackground { (data, error) in
-            if error != nil{
-                print(error)
-            }else{
-                if data != nil{
-                    let image = UIImage(data: data!)
-                    self.userImageView.image = image
+        //現在のユーザーを取得
+        let user = NCMBUser.current()
+        
+        if let user = NCMBUser.current(){
+            userDisplayNameLabel.text = user.object(forKey: "displayName") as? String
+            userIntroductionTextView.text = user.object(forKey: "introduction") as? String
+            self.navigationItem.title = user.userName
+            
+            let file = NCMBFile.file(withName: NCMBUser.current().objectId , data: nil) as! NCMBFile
+            file.getDataInBackground { (data, error) in
+                if error != nil{
+                    print(error)
+                }else{
+                    if data != nil{
+                        let image = UIImage(data: data!)
+                        self.userImageView.image = image
+                    }
                 }
             }
+        }else{
+            //NCMBUser.current()がnillだった時
+            //ログアウト成功
+            let storyboard = UIStoryboard(name: "SiginIn", bundle: Bundle.main)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+            //画面の切り替え
+            UIApplication.shared.keyWindow?.rootViewController = rootViewController
+            //ログイン状態の保持
+            let ud = UserDefaults.standard
+            ud.set(false, forKey: "isLogin")
+            ud.synchronize()
+            
         }
+        
     }
+    
     
     @IBAction func showMenu(_ sender: Any) {
         let alertController=UIAlertController(title: "メニュー", message: "メニューから選択してください。", preferredStyle: .actionSheet)
