@@ -12,11 +12,13 @@ import Kingfisher
 import SVProgressHUD
 import SwiftDate
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate ,TimelineTableViewCellDelegate{
     
     //投稿内容の配列
     var posts = [Post]()
     
+    //どれが選択されているか
+    var selectedPost:Post?
     
     @IBOutlet weak var timelineTableView: UITableView!
     
@@ -27,13 +29,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TimelineTableViewCell
         
-        //cell.delegate = self
+        cell.delegate = self
         cell.tag = indexPath.row
         
         let user = posts[indexPath.row].user
         cell.userNameLabel.text = user.displayName
         let userImageUrl = "https://mb.api.cloud.nifty.com/2013-09-01/applications/9Tj16GHOfhtRpaUD/publicFiles/" + user.objectId
-        cell.userImageView.kf.setImage(with: URL(string: userImageUrl), placeholder: UIImage(named: "human placeholder.png"), options: nil, progressBlock: nil, completionHandler: nil)
+        //cell.userImageView.kf.setImage(with: URL(string: userImageUrl), placeholder: UIImage(named: "human placeholder.png"), options: nil, progressBlock: nil, completionHandler: nil)
         
         cell.commentTextView.text = posts[indexPath.row].text
         let imageUrl = posts[indexPath.row].imageUrl
@@ -66,6 +68,93 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         timelineTableView.register(nib, forCellReuseIdentifier: "Cell")
         
         timelineTableView.tableFooterView = UIView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toComments" {
+            let commentViewController = segue.destination as! CommentsViewController
+            commentViewController.postId = selectedPost?.objectId
+        }
+    }
+
+    func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton) {
+        if posts[tableViewCell.tag].isLiked == false || posts[tableViewCell.tag].isLiked == nil {
+            let query = NCMBQuery(className: "Post")
+            query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
+                post?.addUniqueObject(NCMBUser.current().objectId, forKey: "likeUser")
+                post?.saveEventually({ (error) in
+                    if error != nil {
+                        SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                    } else {
+                        self.loadTimeline()
+                    }
+                })
+            })
+        } else {
+            let query = NCMBQuery(className: "Post")
+            query?.getObjectInBackground(withId: posts[tableViewCell.tag].objectId, block: { (post, error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                } else {
+                    post?.removeObjects(in: [NCMBUser.current().objectId], forKey: "likeUser")
+                    post?.saveEventually({ (error) in
+                        if error != nil {
+                            SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                        } else {
+                            self.loadTimeline()
+                        }
+                    })
+                }
+            })
+        }
+    
+
+    }
+    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "削除する", style: .destructive) { (action) in
+            SVProgressHUD.show()
+            let query = NCMBQuery(className: "Post")
+            query?.getObjectInBackground(withId: self.posts[tableViewCell.tag].objectId, block: { (post, error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                } else {
+                    // 取得した投稿オブジェクトを削除
+                    post?.deleteInBackground({ (error) in
+                        if error != nil {
+                            SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                        } else {
+                            // 再読込
+                            self.loadTimeline()
+                            SVProgressHUD.dismiss()
+                        }
+                    })
+                }
+            })
+        }
+        let reportAction = UIAlertAction(title: "報告する", style: .destructive) { (action) in
+            SVProgressHUD.showSuccess(withStatus: "この投稿を報告しました。ご協力ありがとうございました。")
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        if posts[tableViewCell.tag].user.objectId == NCMBUser.current().objectId {
+            // 自分の投稿なので、削除ボタンを出す
+            alertController.addAction(deleteAction)
+        } else {
+            // 他人の投稿なので、報告ボタンを出す
+            alertController.addAction(reportAction)
+        }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    
+    }
+    func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton) {
+        // 選ばれた投稿を一時的に格納
+        //selectedPost = posts[tableViewCell.tag]
+        
+        // 遷移させる(このとき、prepareForSegue関数で値を渡す)
+        self.performSegue(withIdentifier: "toComments", sender: nil)
     }
     func loadTimeline(){
         let query = NCMBQuery(className: "Post")

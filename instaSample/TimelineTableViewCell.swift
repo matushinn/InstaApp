@@ -8,8 +8,16 @@
 
 import UIKit
 
+//共通化、これを宣言したらどのクラスでも使える
+protocol TimelineTableViewCellDelegate {
+    func didTapLikeButton(tableViewCell: UITableViewCell, button: UIButton)
+    func didTapMenuButton(tableViewCell: UITableViewCell, button: UIButton)
+    func didTapCommentsButton(tableViewCell: UITableViewCell, button: UIButton)
+}
+
 class TimelineTableViewCell: UITableViewCell {
     
+    var delegate:TimelineTableViewCellDelegate?
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -35,14 +43,17 @@ class TimelineTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    //注意、likeButtonに変えた
     @IBAction func like(_ sender: Any) {
-        
+        self.delegate?.didTapLikeButton(tableViewCell: self, button: likeButton)
     }
     
-    @IBAction func Menu(_ sender: Any) {
+    @IBAction func openMenu(_ sender: Any) {
+        self.delegate?.didTapMenuButton(tableViewCell: self, button: likeButton)
     }
     
     @IBAction func showComments(_ sender: Any) {
+        self.delegate?.didTapCommentsButton(tableViewCell: self, button: likeButton)
     }
     
 }

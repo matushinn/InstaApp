@@ -36,6 +36,7 @@
                         <state key="normal" image="icons8-もっと-24"/>
                         <connections>
                             <action selector="Menu:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kzp-FY-Ika"/>
+                            <action selector="openMenu:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hca-h5-X5M"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lo-Jl-iMj">
