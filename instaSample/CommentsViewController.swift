@@ -27,6 +27,11 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         //余計な横線が入らないように
         commentTableView.tableFooterView = UIView()
         
+        //tableviewcellの文字が長くなってしまった時の対処
+        commentTableView.estimatedRowHeight = 80
+        
+        commentTableView.rowHeight = UITableView.automaticDimension
+        
         loadComments()
     }
     
