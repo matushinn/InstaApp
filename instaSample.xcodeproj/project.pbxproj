@@ -28,6 +28,9 @@
 		37E552E621CB7F8A00FC4052 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E552E521CB7F8A00FC4052 /* User.swift */; };
 		37E552E821CB880800FC4052 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E552E721CB880800FC4052 /* Comment.swift */; };
 		37E5532821D320E300FC4052 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5532721D320E300FC4052 /* CommentsViewController.swift */; };
+		37E5532D21D3296200FC4052 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5532B21D3296200FC4052 /* SearchTableViewCell.swift */; };
+		37E5532E21D3296200FC4052 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E5532C21D3296200FC4052 /* SearchTableViewCell.xib */; };
+		37E5533021D32C1B00FC4052 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5532F21D32C1B00FC4052 /* SearchViewController.swift */; };
 		BC6E826D3B3E2480D63021BE /* Pods_instaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8880288DB314F3E65256D608 /* Pods_instaSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		37E552E521CB7F8A00FC4052 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		37E552E721CB880800FC4052 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37E5532721D320E300FC4052 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		37E5532B21D3296200FC4052 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		37E5532C21D3296200FC4052 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		37E5532F21D32C1B00FC4052 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8880288DB314F3E65256D608 /* Pods_instaSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instaSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C061BD1E2964A4557B510620 /* Pods-instaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instaSample/Pods-instaSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +129,9 @@
 				37E552E521CB7F8A00FC4052 /* User.swift */,
 				37E552E721CB880800FC4052 /* Comment.swift */,
 				37E5532721D320E300FC4052 /* CommentsViewController.swift */,
+				37E5532B21D3296200FC4052 /* SearchTableViewCell.swift */,
+				37E5532C21D3296200FC4052 /* SearchTableViewCell.xib */,
+				37E5532F21D32C1B00FC4052 /* SearchViewController.swift */,
 			);
 			path = instaSample;
 			sourceTree = "<group>";
@@ -205,6 +214,7 @@
 				37E552E021CB6FB200FC4052 /* more.png in Resources */,
 				37E552D821CB5FE800FC4052 /* human placeholder.png in Resources */,
 				37DD6B8E219BC9340019B27A /* Main.storyboard in Resources */,
+				37E5532E21D3296200FC4052 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +290,8 @@
 				37DD6BA3219BE28D0019B27A /* UserPageViewController.swift in Sources */,
 				37E552E421CB7F6800FC4052 /* Post.swift in Sources */,
 				37DD6B8B219BC9340019B27A /* ViewController.swift in Sources */,
+				37E5533021D32C1B00FC4052 /* SearchViewController.swift in Sources */,
+				37E5532D21D3296200FC4052 /* SearchTableViewCell.swift in Sources */,
 				37E5532821D320E300FC4052 /* CommentsViewController.swift in Sources */,
 				37E552E621CB7F8A00FC4052 /* User.swift in Sources */,
 				37E552E821CB880800FC4052 /* Comment.swift in Sources */,

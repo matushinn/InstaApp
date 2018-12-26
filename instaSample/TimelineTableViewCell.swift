@@ -44,16 +44,16 @@ class TimelineTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     //注意、likeButtonに変えた
-    @IBAction func like(_ sender: Any) {
-        self.delegate?.didTapLikeButton(tableViewCell: self, button: likeButton)
+    @IBAction func like(button:UIButton) {
+        self.delegate?.didTapLikeButton(tableViewCell: self, button: button)
     }
     
-    @IBAction func openMenu(_ sender: Any) {
-        self.delegate?.didTapMenuButton(tableViewCell: self, button: likeButton)
+    @IBAction func openMenu(button:UIButton) {
+        self.delegate?.didTapMenuButton(tableViewCell: self, button: button)
     }
     
-    @IBAction func showComments(_ sender: Any) {
-        self.delegate?.didTapCommentsButton(tableViewCell: self, button: likeButton)
+    @IBAction func showComments(button:UIButton) {
+        self.delegate?.didTapCommentsButton(tableViewCell: self, button: button)
     }
     
 }
